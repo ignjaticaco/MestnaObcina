@@ -5,6 +5,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
+            <?php session_start(); ?>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Estate &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
@@ -63,7 +64,12 @@
 
 	</head>
 	<body>
-
+<?php
+  
+'include_once './db.php';
+$sql = "SELECT * FROM poslovni_prostori ";
+$result = $conn->query($sql);
+?>
 	<div id="fh5co-page">
 	<header id="fh5co-header" role="banner">
 		<div class="container">
@@ -101,25 +107,27 @@
 					<h2>We are Offering the Best Real Estate Deals</h2>
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
 				</div>
+                            <?php while($row = $result->fetch_assoc()) { 
+                ?>
 				<div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
 					<div class="fh5co-property">
 						<figure>
 							<img src="images/slide_3.jpg" alt="Free Website Templates FreeHTML5.co" class="img-responsive">
-							<a href="#" class="tag">For Rent</a>
+							<a href="IFprijavljenLahkoPoslje.php" class="tag">For Rent</a>
 						</figure>
 						<div class="fh5co-property-innter">
-							<h3><a href="#">Villa In Hialeah, Dade County</a></h3>
+							<h3><a href="#"><?php echo $row['lokacija']; ?></a></h3>
 							<div class="price-status">
-		                 	<span class="price">$4,000 <span class="per">/Month</span></span>
-		               </div>
-		               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
+		                 	<span class="price"><?php echo $row['najemnina']; ?><span class="per">/Month</span></span>
+		               </div>                 
+		               <p><?php echo $row['opis']; ?></p>
 	            	</div>
 	            	<p class="fh5co-property-specification">
-	            		<span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
+	            		<span><strong><?php echo $row['velikost']; ?></strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
 	            	</p>
 					</div>
 				</div>
-
+ <?php }?>
 				<div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
 
 					<div class="fh5co-property">

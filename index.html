@@ -5,6 +5,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
+            <?php session_start(); ?>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Estate &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
@@ -78,6 +79,11 @@
 							<li><a href="properties.html">Properties</a></li>
 							<li class="call"><a href="tel://123456789"><i class="icon-phone"></i> +1 123 456 789</a></li>
 							<li class="cta"><a href="contact.html">Contact us</a></li>
+                                                        <li class="cta"><a href="dodajProstor.html">Dodaj Prostor</a></li>
+                                                        <li><form action="search.php" method="post">
+                                                                <input type="text" name="iskanje">
+                                                                <input type="submit" value="isci"></form></li> 
+                                                            
 						</ul>
 					</nav>
 				</div>
@@ -130,6 +136,7 @@
 	   						</div>
 		   				</div>
 		   			</div>
+                                    <a href="izvozPodatkov.php">Izvozi CSV prostorov</a>
 		   		</div>
 		   	</li>
 				<li style="background-image: url(images/slide_3.jpg);">

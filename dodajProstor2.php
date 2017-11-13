@@ -16,8 +16,10 @@ $velikost = $_POST['velikost'];
 $lokacija = $_POST['lokacija'];
 $najemnina = $_POST['najemnina'];
 $opis = $_POST['opis'];
-$sql = "INSERT INTO poslovni_prostori (stanje, velikost, lokacija, najemnina, opis)
-VALUES ('$stanje','$velikost','$lokacija','$najemnina','$opis')";
+$zacetek = $_POST['zacetek'];
+$konec = $_POST['konec'];
+$sql = "INSERT INTO poslovni_prostori (stanje, velikost, lokacija, najemnina, opis, zacetek, konec )
+VALUES ('$stanje','$velikost','$lokacija','$najemnina','$opis','$zacetek','$konec')";
 
 
 if ($conn->query($sql) === TRUE) {
@@ -32,9 +34,4 @@ $conn->close();
      header( "Location: index.php" );
 
 ?>
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 

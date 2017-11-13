@@ -11,11 +11,12 @@ and open the template in the editor.
     </head>
     <body>
         <form action="dodajProstor2.php" method="post">
-        <input type="text" name="stanje">
-        <input type="number" name="velikost">
-        <input type="text" name="lokacija">
-        <input type="number" name="najemnina">
-        <input type="text" name="opis">
+        <p>Stanje:</p><input type="text" name="stanje">
+        <p>Velikost:</p> <input type="number" name="velikost">
+        <p>Lokacija:</p><input type="text" name="lokacija">
+        <p>Opis:</p><input type="text" name="opis">
+        <p>Zacetek:</p><input type="date" name="zacetek">
+        <p>Konec:</p><input type="date" name="konec">
         <input type="submit" value="Poslji">
         </form>
         <?php

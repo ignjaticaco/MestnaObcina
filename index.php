@@ -82,7 +82,7 @@
                                                         <li class="cta"><a href="dodajProstor.php">Dodaj Prostor</a></li>
                                                         <li><form action="search.php" method="post">
                                                                 <input type="text" name="iskanje">
-                                                                <input type="submit" value="isci"></form></li> 
+                                                                <<button type="submit" name="submit">Search</button></form></li> 
                                                             
 						</ul>
 					</nav>

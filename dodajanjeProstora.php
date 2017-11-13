@@ -7,22 +7,22 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <div id="third">
+        <h1>Dodaj prostor</h1>
         <form action="dodajProstor2.php" method="post">
-        <p>Stanje:</p><input type="text" name="stanje">
-        <p>Velikost:</p> <input type="number" name="velikost">
-        <p>Lokacija:</p><input type="text" name="lokacija">
-        <p>Najemnina:</p> <input type="number" name="najemnina">
-        <p>Opis:</p><input type="text" name="opis">
-        <p>Zacetek:</p><input type="date" name="zacetek">
-        <p>Konec:</p><input type="date" name="konec">
-        <p>Slika:</p><input type = "file" name = "image" />
-        <input type="submit" value="Poslji">	
+        <div class="text"> Stanje: </div><div class="box"><input type="text" name="stanje"></div>
+        <div class="text"> Velikost: </div><div class="box"><input type="number" name="velikost"></div>
+        <div class="text"> Lokacija: </div><div class="box"><input type="text" name="lokacija"></div>
+        <div class="text"> Najemnina: </div><div class="box"><input type="number" name="najemnina"></div>
+        <div class="text"> Opis: </div><div class="box"><input type="text" name="opis"></div>
+        <div class="text"> Začetek: </div><div class="box"><input type="date" name="zacetek"></div>
+        <div class="text"> Konec: </div><div class="box"><input type="date" name="konec"></div>
+        <div class="text"> Slika: </div><div class="box"><input type = "file" name = "image" /></div>
+        <div id="submit"><input type="submit" value="Poslji"></div>
         </form>
-        <?php
-        // put your code here
-        ?>
+        </div>
     </body>
 </html>

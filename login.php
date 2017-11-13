@@ -4,14 +4,15 @@
         session_start();
         ?>
         <meta charset="UTF-8">
-        <title>Prijava</title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <div id="third">
         <h1>Prijava</h1>
+        
         <form action="login_check.php" method="post">       
-            Vzdevek: <input type="text" name="chatVzdevek" /><br />
-            Geslo: <input type="password" name="geslo" /><br />           
-            <input type="submit" value="Shrani" />
-            
-           ?>
+            <div class="text"> Vzdevek: </div><div class="box"><input type="text" name="chatVzdevek" /> </div>
+            <div class="text"> Geslo: </div><div class="box"><input type="password" name="geslo" />    </div>       
+            <div id="submit"><input type="submit" value="Prijava" /></div>
+        </div>
 <html>

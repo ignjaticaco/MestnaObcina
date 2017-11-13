@@ -114,7 +114,7 @@ $result = $conn->query($sql);
 				<div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
 					<div class="fh5co-property">
 						<figure>
-							<img src="images/slide_3.jpg" alt="Free Website Templates FreeHTML5.co" class="img-responsive">
+							<img src="<?php echo " <img src='images/$row[images]'>"; ?>" alt="Free Website Templates FreeHTML5.co" class="img-responsive">
 							<a href="IFprijavljenLahkoPoslje.php" class="tag">For Rent</a>
 						</figure>
 						<div class="fh5co-property-innter">
@@ -125,7 +125,8 @@ $result = $conn->query($sql);
 		               <p><?php echo $row['opis']; ?></p>
 	            	</div>
 	            	<p class="fh5co-property-specification">
-	            		<span><strong><?php echo $row['velikost']; ?></strong> Sq Ft</span>  
+                            <span><strong><?php echo $row['velikost']; ?></strong> Sq Ft</span>
+                            <span><strong><?php if ($row['prosto'] == 0){     echo 'Ni Prosto';}else{    echo 'Je Prosto';} ?> </strong></span> 
 	            	</p>
 					</div>
 				</div>

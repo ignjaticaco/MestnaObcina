@@ -11,6 +11,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+
 $stanje = $_POST['stanje'];
 $velikost = $_POST['velikost'];
 $lokacija = $_POST['lokacija'];
@@ -18,8 +19,12 @@ $najemnina = $_POST['najemnina'];
 $opis = $_POST['opis'];
 $zacetek = $_POST['zacetek'];
 $konec = $_POST['konec'];
-$sql = "INSERT INTO poslovni_prostori (stanje, velikost, lokacija, najemnina, opis, zacetek, konec )
-VALUES ('$stanje','$velikost','$lokacija','$najemnina','$opis','$zacetek','$konec')";
+$pot = $_POST ['image'];
+$ime = $_FILES ['image'] ["name"];
+$mysql_path = $pot."".$ime;
+
+$sql = "INSERT INTO poslovni_prostori (stanje, velikost, lokacija, najemnina, opis, zacetek, konec, slika)
+VALUES ('$stanje','$velikost','$lokacija','$najemnina','$opis','$zacetek','$konec','$mysql_path')";
 
 
 if ($conn->query($sql) === TRUE) {

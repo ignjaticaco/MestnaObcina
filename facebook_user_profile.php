@@ -2,7 +2,7 @@
 session_start();
 
 require_once __DIR__.'/vendor/autoload.php';
-require 'BazaConnect.php';
+require 'db.php';
 
 $fb = new Facebook\Facebook([
   'app_id' => '117324138939152',
@@ -37,6 +37,7 @@ $result = mysqli_fetch_array($query);
 
 if($count > 0)
 {
+    $_SESSION['mail'] = $user['email'];
     $_SESSION['fb_id'] = $user['id'];
     $_SESSION['id'] = $result['id'];
 }
@@ -51,6 +52,7 @@ else
     $result2 = mysqli_query($conn, $query2);
     if($result2)
     {
+        $_SESSION['mail'] = $user['email'];
         $_SESSION['fb_id'] = $fb_id;
         $_SESSION['id'] = $result2['id'];
     }

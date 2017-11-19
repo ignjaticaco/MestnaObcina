@@ -13,8 +13,9 @@ if ($conn->connect_error) {
 } 
 $vsebina  = $_POST['povprasevanje'];
 $id = $_SESSION ['id'];
+$id_div = $_GET ["id"] ;
 $sql = "INSERT INTO povprasevanje (id_uporabnik, vsebina, id_poslovni_prostor)
-VALUES ($id,'$vsebina')";
+VALUES ($id,'$vsebina',$id_div)";
 
 
 if ($conn->query($sql) === TRUE) {

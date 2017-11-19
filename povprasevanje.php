@@ -11,12 +11,24 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        <?php
+session_start();
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    
+    echo '
+
         <div id="third">
         <h1>Vprašaj</h1>
-        <form action="InsertPovprasevanje.php" method="post">
+        <form action="InsertPovprasevanje.php/?id='.$row[id].'" method="post">
         <div class="text"> Vprašaj: </div><div class="box"><input type="text" name="povprasevanje"></div>
         <div id="submit"><input type="submit" value="Pošlji"></div>
         </form>
-        </div>
+        </div>';
+}
+        else {
+    echo "Please log in first to see this page."
+    . "<a href ='login.php'> Klikni tukaj za prijavo </a> ";
+}
+?>
     </body>
 </html>

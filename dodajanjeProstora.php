@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <div id="third">
         <h1>Dodaj prostor</h1>
-        <form action="dodajProstor2.php" method="post">
+        <form action="uploadTest.php" method="post">
         <div class="text"> Stanje: </div><div class="box"><input type="text" name="stanje"></div>
         <div class="text"> Velikost: </div><div class="box"><input type="number" name="velikost"></div>
         <div class="text"> Lokacija: </div><div class="box"><input type="text" name="lokacija"></div>
@@ -20,8 +20,8 @@ and open the template in the editor.
         <div class="text"> Opis: </div><div class="box"><input type="text" name="opis"></div>
         <div class="text"> Začetek: </div><div class="box"><input type="date" name="zacetek"></div>
         <div class="text"> Konec: </div><div class="box"><input type="date" name="konec"></div>
-        <div class="text"> Slika: </div><div class="box"><input type = "file" name = "image" /></div>
-        <div id="submit"><input type="submit" value="Poslji"></div>
+        <div class="text"> Slika: </div><div class="box"><input type = "file" name = "fileToUpload" /></div>
+        <div id="submit"><input type="submit" value="Poslji" name="submit"></div>
         </form>
         </div>
     </body>

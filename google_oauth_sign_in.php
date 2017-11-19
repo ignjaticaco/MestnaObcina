@@ -2,7 +2,7 @@
 session_start();
 
 require_once __DIR__.'/vendor/autoload.php';
-require 'BazaConnect.php';
+require 'db.php';
 
 $id_token = $_POST['idtoken'];
 
@@ -40,9 +40,9 @@ $SQL = "SELECT id FROM uporabniki WHERE google_id='$userid';";
 $query = mysqli_query($conn, $SQL);
 $count = mysqli_num_rows($query);
 $result = mysqli_fetch_array($query);
-
 if($count > 0)
 {
+    $_SESSION['mail'] = $payload['mail'];
     $_SESSION['google_id'] = $userid;
     $_SESSION['id'] = $result['id'];
 }
@@ -56,6 +56,7 @@ else
     $result2 = mysqli_query($conn, $query2);
     if($result2)
     {
+        $_SESSION['mail'] = $eposta;
         $_SESSION['google_id'] = $userid;
         $_SESSION['id'] = $result2['id'];
     }

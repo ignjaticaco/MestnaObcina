@@ -3,6 +3,9 @@
         <meta charset="UTF-8">
         <meta name="google-signin-client_id" content="548013672380-r075g6cgqk4ekjgikkktmimk1qlo90r0.apps.googleusercontent.com">
         <title>index</title>
+        <?php
+        require 'steamauth/steamauth.php';
+        ?>
         <script src="https://apis.google.com/js/platform.js"></script>
         <script>
         function onSignIn(googleUser) 
@@ -10,7 +13,7 @@
             var id_token = googleUser.getAuthResponse().id_token;
             
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost/projektrsa/google_oauth_sign_in.php');
+            xhr.open('POST', 'http://localhost/MestnaObcina/google_oauth_sign_in.php');
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onload = function() 
             {
@@ -24,7 +27,7 @@
                     });
             
                     auth2.disconnect();
-                    window.location.replace("main.php");
+                    window.location.replace("rent.php");
                 }
                 else 
                 {
@@ -47,7 +50,7 @@
                     if (response.status === 'connected')
                     {
                         var xhr = new XMLHttpRequest();
-                        xhr.open('POST', 'http://localhost/projektrsa/facebook_user_profile.php');
+                        xhr.open('POST', 'http://localhost/MestnaObcina/facebook_user_profile.php');
                         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                         xhr.onload = function()
                         {
@@ -58,7 +61,7 @@
                                 {
                                     
                                 });
-                                window.location.replace("main.php");
+                                window.location.replace("rent.php");
                                 
                             }
                             else 
@@ -107,7 +110,7 @@
             
         </script>
             <table>
-                <tr><td><div class="g-signin2" data-onsuccess="onSignIn" data-cookiepolicy='single_host_origin'></div></td><td><fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button></div></td></tr>
+                <tr><td><div class="g-signin2" data-onsuccess="onSignIn" data-cookiepolicy='single_host_origin'></div></td><td><fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button></div></td><td><?php echo loginbutton();?></td><td><a href="odjava.php">Odjava</a></tr>
             </table>
         </form>
     </body>

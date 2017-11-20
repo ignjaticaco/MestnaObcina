@@ -88,6 +88,16 @@ $result = $conn->query($sql);
                                                          <li><form action="search.php" method="post">
                                                                 <input type="text" name="iskanje">
                                                                 <button type="submit" name="submit">Search</button></form></li> 
+							<?php
+                                                        if(isset($_SESSION['id']))
+                                                        {
+                                                           echo '<li><a href="odjava.php">Logout</a></li>';
+                                                        }
+                                                       else
+                                                        {
+                                                            echo '<li><a href="login.php">Login</a></li>';
+                                                        }
+                                                        ?>
 						</ul>
 					</nav>
 				</div>

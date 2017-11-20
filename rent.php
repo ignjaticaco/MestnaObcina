@@ -85,6 +85,16 @@ $result = $conn->query($sql);
 							<li><a href="properties.html">Properties</a></li>
 							<li class="call"><a href="tel://123456789"><i class="icon-phone"></i> +1 123 456 789</a></li>
 							<li class="cta"><a href="contact.html">Contact us</a></li>
+							<?php
+                                                        if(isset($_SESSION['id']))
+                                                        {
+                                                           echo '<li><a href="odjava.php">Logout</a></li>';
+                                                        }
+                                                       else
+                                                        {
+                                                            echo '<li><a href="login.php">Login</a></li>';
+                                                        }
+                                                        ?>
 						</ul>
 					</nav>
 				</div>

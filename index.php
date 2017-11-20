@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -77,25 +76,23 @@ $result = $conn->query($sql);
 		<div class="container">
 			<div class="row">
 				<div class="header-inner">
-					<h1><a href="index.html">Mestna Obcina Velenje<span>.</span></a></h1>
+					<h1><a href="index.html">MOV<span>.</span></a></h1>
 					<nav role="navigation">
 						<ul>
-							
-							<li class="active"><a href="rent.php">Najemi</a></li>
 							<li class="call"><a href="tel://123456789"><i class="icon-phone"></i> +1 123 456 789</a></li>
 							<li class="cta"><a href="contact.php">Kontaktiraj Nas</a></li>
-                                                        <li class="cta"><a href="login.php">Prijavi Se</a></li>
-                                                         <li><form action="search.php" method="post">
-                                                                <input type="text" name="iskanje">
-                                                                <button type="submit" name="submit">Search</button></form></li> 
-							<?php
+                                                        <?php
                                                         if(isset($_SESSION['id']))
                                                         {
-                                                           echo '<li><a href="odjava.php">Logout</a></li>';
+                                                            echo '<li class="cta"><a href="odjava.php">Odjavi Se</a></li>';
                                                         }
-                                                       else
+                                                        else
                                                         {
-                                                            echo '<li><a href="login.php">Login</a></li>';
+                                                            echo '<li class="cta"><a href="login.php">Prijavi Se</a></li>';
+                                                        }
+                                                        if(isset($_SESSION['id']))
+                                                        {
+                                                            echo '<li class="cta"><a href="dodajanjeprostora.php">Dodaj Prostor</a></li>';
                                                         }
                                                         ?>
 						</ul>
@@ -119,15 +116,41 @@ $result = $conn->query($sql);
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box" data-animate-effect="fadeIn">
-					<h2>We are Offering the Best Real Estate Deals</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+					<h2></h2>
+					<p></p>
 				</div>
+                            <div>
+            <form action="iskanjepokriterijih.php" method="get" style="margin-bottom: 30px;">
+                Velikost
+                od:<input type="text" name="velikostod">
+                do:<input type="text" name="velikostdo">
+                Lokacija
+                <select name="lokacija">
+                    <?php
+                        session_start();
+                        require 'db.php';
+                        mysqli_query($conn, "SET NAMES 'utf8'");
+                        $query = "SELECT lokacija FROM poslovni_prostori";
+                        $result2 = mysqli_query($conn, $query);
+                        while($row2 = mysqli_fetch_array($result2))
+                        {
+                            echo '<option value="'. $row2['lokacija'] .'">' .$row2['lokacija']. '</option>';
+                        }
+                    ?>
+                </select>
+                Najemnina
+                od:<input type="text" name="najemninaod">
+                do:<input type="text" name="najemninado">
+                <input type="submit" value="Submit">
+            </form>
+                                </div>
+                            <div></div>
                             <?php while($row = $result->fetch_assoc()) { 
                 ?>
 				<div <?php echo "'".$row['id']."'";?> class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
 					<div class="fh5co-property">
 						<figure>
-							<img src="<?php echo " <img src='images/$row[images]'>"; ?>" alt="Free Website Templates FreeHTML5.co" class="img-responsive">
+							<img src="<?php echo " <img src='images/$row[images]'>"; ?>" alt="Slika" class="img-responsive">
 							<a href="IFprijavljenLahkoPoslje.php" class="tag">For Rent</a>
 						</figure>
 						<div class="fh5co-property-innter">
@@ -211,4 +234,3 @@ $result = $conn->query($sql);
 
 	</body>
 </html>
-

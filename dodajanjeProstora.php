@@ -21,6 +21,7 @@ and open the template in the editor.
         <div class="text"> Začetek: </div><div class="box"><input type="date" name="zacetek"></div>
         <div class="text"> Konec: </div><div class="box"><input type="date" name="konec"></div>
         <div class="text"> Slika: </div><div class="box"><input type="file" name="fileToUpload" id="fileToUpload"></div>
+        <div class="text"> Videoposnetek - Embed URL (Youtube): </div><div class="box"><input type="text" name="url"></div>
         <div id="submit"><input type="submit" value="Upload Image" name="submit"></div>
         </form>
         </div>

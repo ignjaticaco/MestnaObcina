@@ -40,6 +40,7 @@ if ($uploadOk == 0) {
         $konec = $_POST['konec'];
         $pot = $_FILES['fileToUpload'];
         $id_uporabnik = $_SESSION ['id'];
+        $url = $_POST ['url'];
 
 $sql = "INSERT INTO poslovni_prostori (stanje, velikost, lokacija, najemnina, opis, zacetek, konec, slika)
 VALUES ('$stanje','$velikost','$lokacija','$najemnina','$opis','$zacetek','$konec','$target_file')";

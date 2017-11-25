@@ -46,6 +46,9 @@ VALUES ('$stanje','$velikost','$lokacija','$najemnina','$opis','$zacetek','$kone
         
 $sql2 = "INSERT INTO poslovni_prostori_uporabniki (id_uporabnik, id_poslovni_prostor)
 VALUES ('$id_uporabnik', (SELECT id FROM poslovni_prostori ORDER BY id DESC LIMIT 1))";
+        
+$sql3 = "INSERT INTO videoposnetki (id_poslovni_prostor, url)
+VALUES ((SELECT id FROM poslovni_prostori ORDER BY id DESC LIMIT 1), '$url')";
                 
         $result = mysqli_query($conn, $sql);
         

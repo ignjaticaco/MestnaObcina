@@ -39,9 +39,13 @@ if ($uploadOk == 0) {
         $zacetek = $_POST['zacetek'];
         $konec = $_POST['konec'];
         $pot = $_FILES['fileToUpload'];
+        $id_uporabnik = $_SESSION ['id'];
 
 $sql = "INSERT INTO poslovni_prostori (stanje, velikost, lokacija, najemnina, opis, zacetek, konec, slika)
 VALUES ('$stanje','$velikost','$lokacija','$najemnina','$opis','$zacetek','$konec','$target_file')";
+        
+$sql2 = "INSERT INTO poslovni_prostori_uporabniki (id_uporabnik, id_poslovni_prostor)
+VALUES ('$id_uporabnik', (SELECT id FROM poslovni_prostori ORDER BY id DESC LIMIT 1))";
                 
         $result = mysqli_query($conn, $sql);
         

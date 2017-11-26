@@ -59,6 +59,15 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #118DF0;
 }
 
+.text3
+{
+    display: inline-block;
+    width: 50%;
+    color: black;
+    font-weight: bold;
+    font-family: Arial;
+}
+
 .btn {
   margin-right: 4px;
   margin-bottom: 4px;

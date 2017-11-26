@@ -9,7 +9,7 @@
         
         if(mysqli_query($conn, $sql) && mysqli_query($conn, $sql2))
     {
-            header("Location: pacienti.php");
+            header("Location: prostori.php");
     } 
     else{
         echo "Prišlo je do napake";
